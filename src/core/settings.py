@@ -119,6 +119,10 @@ class RedisSettings(BaseSettings):
         env_file_encoding = "utf-8"
 
 
+class MongoSettings(BaseSettings):
+    pass
+
+
 class APIServicesSettings(BaseSettings):
     QIWI_SECRET: Optional[str] = Field(None, env="QIWI_SECRET")
     QIWI_API_TOKEN: Optional[str] = Field(None, env="QIWI_API_TOKEN")
@@ -143,6 +147,7 @@ class SystemSettings(BaseSettings):
 
 class ApplicationSettings(BaseSettings):
     database: DatabaseSettings = DatabaseSettings()
+    mongo: MongoSettings = MongoSettings()
     fastapi: FastAPISettings = FastAPISettings()  # noqa
     redis: RedisSettings = RedisSettings()
     api: APIServicesSettings = APIServicesSettings()
